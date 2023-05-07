@@ -23,10 +23,16 @@ public class JobData {
     private static boolean isDataLoaded = false;
 
     private static ArrayList<Job> allJobs;
+
+//She refactored JobData to generate an ArrayList of Job objects based on your TechJobs-OO work
+
     private static ArrayList<Employer> allEmployers = new ArrayList<>();
     private static ArrayList<Location> allLocations = new ArrayList<>();
     private static ArrayList<PositionType> allPositionTypes = new ArrayList<>();
     private static ArrayList<CoreCompetency> allCoreCompetency = new ArrayList<>();
+
+//JobData now also builds ArrayLists for the Employer, Location, PositionType, and CoreCompetency objects
+
 
     /**
      * Fetch list of all job objects from loaded data,
