@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
@@ -85,8 +86,6 @@ public class ListController {
 //link within the list view, rather than via submitting a form. We’ll see where these links originate when we look
 //at the views. Also note that the listJobsByColumnAndValue method deals with an “all” scenario differently than
 //if a user clicks one of the category links.
-
-
 
 
 }

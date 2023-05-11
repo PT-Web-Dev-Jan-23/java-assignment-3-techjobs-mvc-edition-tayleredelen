@@ -6,12 +6,43 @@
 
 <div th:replace="fragments :: page-header"></div>
 
-<div class="container body-content">
+<div class="container body-content"></div>
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #1 - Use a loop to display job results in a table. -->
+<!--Create a loop to display each job passed in from the controller.
+The job data should be presented in tables, with each job in its own table.
+Be sure to check in ListController to find the variable names available to the template.-->
+<!--Book loop syntax reminder... th:each = "variableName : ${collectionName}"-->
 
+   <div th:each="job : ${jobs}">
+       <table class="job-listing">
+       <tr>
+           <th>ID</th>
+           <td th:text="${job.id}"></td>
+       </tr>
+       <tr>
+           <th>Name</th>
+           <td th:text="${job.name}"></td>
+       </tr>
+       <tr>
+           <th>Employer</th>
+           <td th:text="${job.employer.value}"></td>
+       </tr>
+       <tr>
+           <th>Location</th>
+           <td th:text="${job.location.value}"></td>
+       </tr>
+       <tr>
+           <th>Position Type</th>
+           <td th:text="${job.positionType.value}"></td>
+       </tr>
+       <tr>
+           <th>Skill</th>
+           <td th:text="${job.coreCompetency.value}"></td>
+       </tr>
+   </table>
 </div>
 
 </body>
