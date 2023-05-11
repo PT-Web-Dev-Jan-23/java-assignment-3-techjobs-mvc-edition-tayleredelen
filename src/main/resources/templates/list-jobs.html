@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+<!--    <link rel="stylesheet" href="@{/css/techjobs.css}">-->
+<!--    not sure if link is needed? -->
 </head>
 <body>
 
@@ -16,6 +18,7 @@ The job data should be presented in tables, with each job in its own table.
 Be sure to check in ListController to find the variable names available to the template.-->
 <!--Book loop syntax reminder... th:each = "variableName : ${collectionName}"-->
 
+<!--<table class="job-listing" th:each="job : ${jobs}"> caused more failures? -->
    <div th:each="job : ${jobs}">
        <table class="job-listing">
        <tr>
