@@ -13,6 +13,7 @@ stored in tableChoices generates the link text-->
         <div class="container body-content">
             <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
             <h2 class = "centered">View Jobs By Category</h2>
+
         </div>
 
         <table class="centeredTable">
@@ -20,11 +21,18 @@ stored in tableChoices generates the link text-->
                 <th:block th:each="column : ${columns}">
                     <th th:text = "${column.value}"></th>
                 </th:block>
+
+
             </tr>
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td>
+                    <a href="/list/jobs?column=all">View All</a>
+<!--                    This anchor element creates a hyperlink to show all jobs. The ? is for a query string where the key is column -->
+<!--                    and the value is all (defined in listJobsByColumnAndValue in ListController)-->
+                </td>
+
 
                 <td th:each="category : ${tableChoices}">
 <!-- tableChoices is a HashMap from JobData, and it contains the names of the Job fields as keys (employer, etc.).
@@ -34,10 +42,9 @@ The value for each key is an ArrayList of Employer, Location, CoreCompetency, or
                     <ul>
                         <li th:each="item : ${category.value}">
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
-<!--                            <a href="/list/jobs?column=all">View All</a> not working-->
 
-                            <!--The syntax @{/list/jobs} to generate a link within a Thymeleaf template
-The other portion of the link: (column=${category.key},value=${position}) causes Thymeleaf to dynamically generate query parameters for our URL.-->
+<!-- The syntax @{/list/jobs} to generate a link within a Thymeleaf template-->
+<!--The other portion of the link: (column=${category.key},value=${position}) causes Thymeleaf to dynamically generate query parameters for our URL.&ndash;&gt;-->
 
 <!--Set these parameters by using column= and value=. The values of these parameters are determined dynamically based on
 ${category.key} and ${item}. Since these values come from tableChoices, the keys will be employer, location, etc.
@@ -49,6 +56,5 @@ be routed to the listJobsByColumnAndValue handler in ListController, which looks
                 </td>
             </tr>
         </table>
-<!--        <a th:href="@{/list/jobs(column='all')}">View All</a> not working-->
     </body>
 </html>

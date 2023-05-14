@@ -37,8 +37,8 @@ public class ListController {
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
         tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
-//        tableChoices.put("all", "/list/jobs?column=all&value=all"); not working
-//        tableChoices.put("All", JobData.findAll()); not working
+
+
     }
 
 //At the top of ListController is a constructor that populates columnChoices and tableChoices with values.
