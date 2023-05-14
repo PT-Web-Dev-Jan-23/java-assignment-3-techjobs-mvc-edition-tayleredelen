@@ -40,7 +40,7 @@ public String displaySearchResults(Model model, @RequestParam String searchType,
 //    In order for these last two parameters to be properly passed in by Spring Boot, you need to use the correct annotation. Also, you need to name them appropriately, based on the corresponding form field names defined in search.html.
     ArrayList<Job> searchJobs;
 //   Create an ArrayList from Job to pull searched info
-    if (searchTerm.equals("all") || searchTerm.isEmpty()) {
+    if (searchTerm.toLowerCase().equals("all") || searchTerm.toLowerCase().isEmpty()) {
         searchJobs = JobData.findAll();
         model.addAttribute("title", "View All");
 //    If the user enters “all” in the search box, or if they leave the box empty, call the findAll() method from JobData. Otherwise, send the search information to findByColumnAndValue. In either case, store the results in a jobs ArrayList.
