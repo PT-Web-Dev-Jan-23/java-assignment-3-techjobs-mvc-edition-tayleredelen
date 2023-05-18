@@ -18,8 +18,8 @@ The job data should be presented in tables, with each job in its own table.
 Be sure to check in ListController to find the variable names available to the template.-->
 <!--Book loop syntax reminder... th:each = "variableName : ${collectionName}"-->
 
-<!--<table class="job-listing" th:each="job : ${jobs}"> combining th:each & class caused more failures? -->
-   <div th:each="job : ${jobs}">
+   <div>
+       <th:block th:each="job : ${jobs}">
        <table class="job-listing">
        <tr>
            <th>ID</th>
