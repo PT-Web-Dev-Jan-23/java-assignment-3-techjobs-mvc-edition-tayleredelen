@@ -42,7 +42,6 @@ public String displaySearchResults(Model model, @RequestParam String searchType,
 //   Create an ArrayList from Job to pull searched info
     if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
         jobs = JobData.findAll();
-        model.addAttribute("title", "View All"); //not sure if this line is necessary?
 //    If the user enters “all” in the search box, or if they leave the box empty, call the findAll() method from JobData.
 //    Otherwise, send the search information to findByColumnAndValue. In either case, store the results in a jobs ArrayList.
     } else {
