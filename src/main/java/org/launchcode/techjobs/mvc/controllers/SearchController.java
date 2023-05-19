@@ -47,8 +47,8 @@ public String displaySearchResults(Model model, @RequestParam String searchType,
     } else {
         jobs = JobData.findByColumnAndValue(searchType, searchTerm);
 //    Pass jobs into the search.html view via the model parameter.
-        model.addAttribute("title", "Jobs with " + ListController.columnChoices.get(searchType) + ": " + searchTerm);
     }
+    model.addAttribute("title", "Jobs with " + ListController.columnChoices.get(searchType) + ": " + searchTerm);
     model.addAttribute("jobs", jobs);
     model.addAttribute("columns", ListController.columnChoices);
 //    Pass ListController.columnChoices into the view, as the existing search handler does.
