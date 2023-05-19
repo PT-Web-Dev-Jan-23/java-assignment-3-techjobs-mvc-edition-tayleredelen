@@ -13,6 +13,9 @@ import java.util.HashMap;
 @Controller
 public class HomeController {
 
+
+//This class has only one handler method, index, which displays the home page for the app.
+// The controller renders the index.html template (in src/main/resources/templates) and provides a fairly simple view.
     @GetMapping(value = "")
     public String index(Model model) {
 

@@ -2,23 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 
 <head th:fragment="head">
+<!--    Define a Thymeleaf fragment for the head section of the HTML document-->
 
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<!--    Link to the Bootstrap CSS stylesheet-->
     <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+<!--    Link to a custom CSS stylesheet named techjobs.css-->
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<!--    Include the Bootstrap JavaScript library-->
+
 
     <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">TechJobs</title>
+<!--    Set the title of the document to "TechJobs" and include the value of the "title" variable, if present-->
+
 </head>
 
 <body>
 
     <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+<!--    Define a Thymeleaf fragment for the page header-->
         <div class="container">
+<!--    Define a container for the header content-->
             <div class="navbar-header">
+<!--    Define the header logo and link to the home page-->
                 <a th:href="@{/}" class="navbar-brand">TechJobs</a>
             </div>
             <div class="navbar-collapse collapse">
+<!--    Define a collapsible menu with links to the Search and List pages-->
                 <ul class="nav navbar-nav">
                     <li><a th:href="@{/search}">Search</a></li>
                     <li><a th:href="@{/list}">List</a></li>

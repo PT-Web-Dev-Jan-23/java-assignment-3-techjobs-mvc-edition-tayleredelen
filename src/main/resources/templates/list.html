@@ -1,3 +1,7 @@
+<!--This page displays a table of links broken down into several categories.
+Data from columnChoices is used to fill in the header row, and information
+stored in tableChoices generates the link text-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
     <head th:replace="fragments :: head"></head>
@@ -9,6 +13,7 @@
         <div class="container body-content">
             <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
             <h2 class = "centered">View Jobs By Category</h2>
+
         </div>
 
         <table class="centeredTable">
@@ -20,17 +25,37 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+                <td>
+                    <a href="/list/jobs?column=all">View All</a>
+<!--                    This anchor element creates a hyperlink to show all jobs. The ? is for a query string where the key is column -->
+<!--                    and the value is all (defined in listJobsByColumnAndValue in ListController)
+
+                       Book instructions: Modify list.html to fill in the empty table cell with the necessary link.
+                        Check ListController to help identify the data to pass in for the query parameters.-->
+                </td>
+
 
                 <td th:each="category : ${tableChoices}">
+<!-- tableChoices is a HashMap from JobData, and it contains the names of the Job fields as keys (employer, etc.).
+The value for each key is an ArrayList of Employer, Location, CoreCompetency, or PositionType objects.-->
+
+<!--category above represents one key/value pair from tableChoices, and below, item represents one entry from the stored ArrayList.-->
                     <ul>
                         <li th:each="item : ${category.value}">
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
+
+<!-- The syntax @{/list/jobs} to generate a link within a Thymeleaf template-->
+<!--The other portion of the link: (column=${category.key},value=${position}) causes Thymeleaf to dynamically generate query parameters for our URL.&ndash;&gt;-->
+
+<!--Set these parameters by using column= and value=. The values of these parameters are determined dynamically based on
+${category.key} and ${item}. Since these values come from tableChoices, the keys will be employer, location, etc.
+The values will be the individual elements from the related ArrayList. When the user clicks on these links, they will
+be routed to the listJobsByColumnAndValue handler in ListController, which looks for these parameters-->
+
                         </li>
                     </ul>
                 </td>
             </tr>
         </table>
-
     </body>
 </html>
